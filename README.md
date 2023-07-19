@@ -2,17 +2,17 @@
 
 - 코드팩토리의 플러터 프로그래밍 에제 모음
 
-
+<br/><br/>
 ## 7/20/2023
 
 - Project : image_carousel
   - 자동 롤링되는 전자액자 구현
     - 영상 : https://imgur.com/a/6IP5uU3
       - 화면을 채우는 사진 매 3초 자동으로 스크롤 반복
-    - <img width="458" alt="스크린샷 2023-07-20 오전 3 35 47" src="https://github.com/bladnoch/codefactory-flutter/assets/112937442/a10500a6-39fd-4be0-9dd2-56dfd7a129bc">
-    
+    - <img width="458" alt="스크린샷 2023-07-20 오전 3 35 47" src="https://github.com/bladnoch/codefactory-flutter/assets/112937442/a10500a6-39fd-4be0-9dd2-56dfd7a129bc">  
       
-
+  <br/>
+     
 - Project : blog_web_app
   - 앞으로 가기, 뒤로가기 버튼 추가
   - <img width="463" alt="스크린샷 2023-07-20 오전 1 25 13" src="https://github.com/bladnoch/codefactory-flutter/assets/112937442/6c7c92b2-421a-494f-bb1b-efec40cce72f">
@@ -20,7 +20,7 @@
 
 
  
-
+<br/><br/>
   <h2>7/19/2023</h2>
 
 - Project : blog_web_app
