@@ -22,6 +22,20 @@ class HomeScreen extends StatelessWidget {
 
         //앱바 안에 홈버튼
         actions: [
+          //뒤로 가기
+          IconButton(onPressed: (){
+            controller!=null ? controller!.goBack(): {};
+          }, icon: Icon(
+            Icons.arrow_back,
+          ),
+          ),
+          //앞으로 가기
+          IconButton(onPressed: (){
+            controller!=null ? controller!.goForward(): {};
+          }, icon: Icon(
+            Icons.arrow_forward,
+          ),
+          ),
           IconButton(onPressed: (){
             /**
              * controller이 null이 아닐경우 실행
