@@ -26,7 +26,30 @@ class HomeScreen extends StatelessWidget {
 class _DDay extends StatelessWidget{
   @override
   Widget build(BuildContext context){
-    return Text("DDAy widget");
+    return Center(
+      child: Column(
+        children: [
+          SizedBox(height: 20,),
+          Text( "U & I", style: TextStyle(
+            fontWeight: FontWeight.w700,
+          ),),
+
+          SizedBox(height: 20,),
+          Text("우리 처음 만난 날"),
+
+          SizedBox(height: 10,),
+          Text("2023/6/23"),
+
+          SizedBox(height: 20,),
+          IconButton(iconSize: 50,
+            onPressed: (){}, icon: Icon(Icons.favorite),),
+
+          SizedBox(height: 20,),
+          Text("D + 45"),
+
+        ],
+      ),
+    );
   }
 }
 
