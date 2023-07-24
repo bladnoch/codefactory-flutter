@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
+/// @home_screen.dart
+/// @since 7/23/2023
+/// @author Doungukkim
+/// @version V0.0.1
+
 class HomeScreen extends StatefulWidget {
-  DateTime firstDay=DateTime.now();
-
   HomeScreen({super.key});
-
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  DateTime firstDay=DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +25,13 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            _DDay(onHeartPressed: onHeartPressed),
+            ///화면 상단 요소
+            _DDay(
+              onHeartPressed: onHeartPressed,
+              firstDay: firstDay,
+            ),
+
+            ///화면 하단 요소
             _CoupleImage(),
           ],
         ),
@@ -29,20 +39,26 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
   void onHeartPressed(){
-  print("click!");
+  setState(() {
+    firstDay=firstDay.subtract(Duration(days:1));
+  });
   }
 }
 
+/// 화면 상단의 요소
 class _DDay extends StatelessWidget{
   final GestureTapCallback onHeartPressed;
+  final DateTime firstDay;
 
   _DDay({
     required this.onHeartPressed,
+    required this.firstDay,
 });
 
   @override
   Widget build(BuildContext context){
     final textTheme=Theme.of(context).textTheme;
+    final now=DateTime.now();
     return Center(
       child: Column(
         children: [
@@ -53,7 +69,7 @@ class _DDay extends StatelessWidget{
           Text("우리 처음 만난 날", style: textTheme.bodyText1),
 
           SizedBox(height: 16,),
-          Text("2023/6/23", style: textTheme.bodyText2),
+          Text("${firstDay.year}. ${firstDay.month}.${firstDay.day}", style: textTheme.bodyText2),
 
           SizedBox(height: 16,),
           IconButton(iconSize: 50,
@@ -64,7 +80,7 @@ class _DDay extends StatelessWidget{
           ),
 
           SizedBox(height: 16,),
-          Text("D + 45", style: textTheme.headline2),
+          Text("D + ${DateTime(now.year, now.month, now.day).difference(firstDay).inDays+1}", style: textTheme.headline2),
 
         ],
       ),
@@ -72,6 +88,7 @@ class _DDay extends StatelessWidget{
   }
 }
 
+///화면 하단
 class _CoupleImage extends StatelessWidget {
   const _CoupleImage({super.key});
 
