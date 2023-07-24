@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomeScreen extends StatefulWidget {
+  DateTime firstDay=DateTime.now();
 
+  HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,38 +21,50 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            _DDay(),
+            _DDay(onHeartPressed: onHeartPressed),
             _CoupleImage(),
           ],
         ),
       ),
     );
   }
+  void onHeartPressed(){
+  print("click!");
+  }
 }
 
 class _DDay extends StatelessWidget{
+  final GestureTapCallback onHeartPressed;
+
+  _DDay({
+    required this.onHeartPressed,
+});
+
   @override
   Widget build(BuildContext context){
+    final textTheme=Theme.of(context).textTheme;
     return Center(
       child: Column(
         children: [
-          SizedBox(height: 20,),
-          Text( "U & I", style: TextStyle(
-            fontWeight: FontWeight.w700,
-          ),),
+          SizedBox(height: 16,),
+          Text( "U & I", style: textTheme.headline1),
 
-          SizedBox(height: 20,),
-          Text("우리 처음 만난 날"),
+          SizedBox(height: 16,),
+          Text("우리 처음 만난 날", style: textTheme.bodyText1),
 
-          SizedBox(height: 10,),
-          Text("2023/6/23"),
+          SizedBox(height: 16,),
+          Text("2023/6/23", style: textTheme.bodyText2),
 
-          SizedBox(height: 20,),
+          SizedBox(height: 16,),
           IconButton(iconSize: 50,
-            onPressed: (){}, icon: Icon(Icons.favorite),),
+            onPressed: onHeartPressed, icon: Icon(
+              Icons.favorite,
+              color: Colors.red,
+            ),
+          ),
 
-          SizedBox(height: 20,),
-          Text("D + 45"),
+          SizedBox(height: 16,),
+          Text("D + 45", style: textTheme.headline2),
 
         ],
       ),
@@ -58,10 +77,12 @@ class _CoupleImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Image.asset('asset/img/middle_image.png',
-        ///이미지의 사이즈를 전체 화면 사이즈의 절만으로 설정
-      height: MediaQuery.of(context).size.height/2,
+    return Expanded(
+      child: Center(
+        child: Image.asset('asset/img/middle_image.png',
+          ///이미지의 사이즈를 전체 화면 사이즈의 절만으로 설정
+        height: MediaQuery.of(context).size.height/2,
+        ),
       ),
     );
   }
